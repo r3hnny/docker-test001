@@ -18,6 +18,7 @@ pipeline {
           docker image ls
           docker ps
           docker stop dc4691f373f2
+          docker run -dp 3000:3000 getting-started
         '''
       }
     }
