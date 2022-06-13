@@ -17,6 +17,7 @@ pipeline {
           echo %CD%
           docker image ls
           docker ps
+          docker stop dc4691f373f2
         '''
       }
     }
