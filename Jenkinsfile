@@ -13,11 +13,13 @@ pipeline {
     stage("run") {
       steps {
         bat '''
-          rem docker run -dp 3000:3000 getting-started
+          rem Testing docker in jenkins
           echo %CD%
           docker image ls
           docker ps
-          docker run -dp 3000:3000 getting-started
+          docker stop sample-app-01
+          docker rm -f sample-app-01
+          docker run -dp 3000:3000 --name sample-app-01 getting-started
         '''
       }
     }
