@@ -1,19 +1,19 @@
 #!/usr/bin/env groovy
 pipeline {
   agent any
-  
+
   stages {
     stage("build") {
       steps {
         bat '''
-          docker build -t hello_there .
+          docker --version
         '''
       }
     }
     stage("run") {
       steps {
-        sh '''
-          docker run --rm hello_there
+        bat '''
+          docker run -dp 3000:3000 getting-started
         '''
       }
     }
